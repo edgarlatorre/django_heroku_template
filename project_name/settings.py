@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'change-it')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "{{ project_name }}.herokuapp.com"
+]
 
 
 # Application definition
@@ -56,7 +58,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
